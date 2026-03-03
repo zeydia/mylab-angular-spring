@@ -1,0 +1,44 @@
+<div class="detail-container">
+  <header class="page-header">
+    <a routerLink="/produit-list" class="btn-back"
+      >← Retour à l'inventaire</a
+    >
+    <div class="actions">
+      <button class="btn-edit" [routerLink]="['/produit-edit', 1]">
+        Modifier
+      </button>
+      <button class="btn-delete" (click)="deleteproduct()">Supprimer</button>
+    </div>
+  </header>
+
+  <div class="product-layout">
+    <div class="info-section">
+      <span class="category">Électronique</span>
+      <h1>Appareil Photo Sony Alpha 7</h1>
+      <div class="status-badge" [class.in-stock]="true">En Stock</div>
+      <p class="price">1,499.00 €</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <label>Quantité disponible</label>
+          <strong>24 unités</strong>
+        </div>
+        <div class="stat-card">
+          <label>Référence SKU</label>
+          <strong>SNY-A7-001</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="description-section">
+      <div class="description">
+        <h3>Description</h3>
+        <p>
+          L'appareil photo hybride plein format Sony Alpha 7 offre une qualité
+          d'image exceptionnelle et une mise au point automatique ultra-rapide.
+          Idéal pour les professionnels et les amateurs passionnés.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

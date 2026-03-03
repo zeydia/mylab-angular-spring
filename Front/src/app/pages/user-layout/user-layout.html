@@ -1,0 +1,30 @@
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div class="user-profile">
+      <div class="avatar"><i class="fas fa-user"></i></div>
+      <span class="user-name">Utilisateur Connecté</span>
+    </div>
+
+    <nav class="menu">
+      <a routerLink="/produit-list" routerLinkActive="active" class="menu-item">
+        <i class="fas fa-boxes"></i>
+        <span>Mon inventaire</span>
+      </a>
+      <a routerLink="/user-informations" routerLinkActive="active" class="menu-item">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="btn-logout" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Déconnexion</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main-content-container">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,89 @@
+$primary: #2563eb;
+$text: #1e293b;
+$bg: #f8fafc;
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $bg;
+  padding: 20px;
+}
+
+.register-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+
+  .header {
+    text-align: center;
+    margin-bottom: 25px;
+    h2 { font-size: 1.6rem; font-weight: 800; span { color: $primary; } }
+    p { color: #64748b; font-size: 0.9rem; margin-top: 5px; }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+
+  @media (max-width: 600px) {
+    flex-direction: column; 
+    gap: 0;
+  }
+}
+
+.input-group {
+  margin-bottom: 18px;
+  width: 100%;
+  flex: 1; 
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: $text;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+
+  &:hover { background-color: darken($primary, 8%); }
+}
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  a { cursor: pointer; color: $primary; text-decoration: none; font-weight: 600; }
+}

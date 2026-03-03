@@ -1,0 +1,41 @@
+<div class="settings-container">
+  <header class="page-header">
+    <h1>Paramètres du compte</h1>
+  </header>
+
+  <section class="settings-section">
+    <h3>Informations personnelles</h3>
+    <div class="user-info-card">
+      <div class="info-group">
+        <label>Nom complet</label>
+        <p>Jean Dupont</p>
+      </div>
+      <div class="info-group">
+        <label>Nom d'utilisateur</label>
+        <p>jean.dupont@exemple.com</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="settings-section">
+    <h3>Sécurité</h3>
+    <form class="password-form">
+      <div class="input-group">
+        <label for="current-password">Mot de passe actuel</label>
+        <input type="password" id="current-password" placeholder="••••••••" [(ngModel)]="actualPassword">
+      </div>
+
+      <div class="input-group">
+        <label for="new-password">Nouveau mot de passe</label>
+        <input type="password" id="new-password" placeholder="••••••••" [(ngModel)]="newPassword">
+      </div>
+
+      <div class="input-group">
+        <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+        <input type="password" id="confirm-password" placeholder="••••••••" [(ngModel)]="newPasswordConfirm">
+      </div>
+
+      <button type="submit" class="btn-save" (click)="updatepassword()">Mettre à jour le mot de passe</button>
+    </form>
+  </section>
+</div>

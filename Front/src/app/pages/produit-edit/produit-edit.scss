@@ -1,0 +1,107 @@
+$primary: #2563eb;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$border: #e2e8f0;
+$white: #ffffff;
+
+.page-header {
+  margin-bottom: 30px;
+  
+  .btn-back {
+    text-decoration: none;
+    color: $text-light;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    &:hover { color: $primary; }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    color: $text-dark;
+  }
+}
+
+.product-form {
+  background: $white;
+  padding: 30px;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
+}
+
+.input-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $text-dark;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $border;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #fdfdfd;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid $border;
+
+  button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn-cancel {
+    background: #f1f5f9;
+    border: 1px solid $border;
+    color: $text-light;
+    &:hover { background: #e2e8f0; }
+  }
+
+  .btn-submit {
+    background: $primary;
+    border: none;
+    color: white;
+    &:hover { background: darken($primary, 10%); }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+    button { width: 100%; }
+  }
+}

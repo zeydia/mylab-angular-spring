@@ -1,0 +1,42 @@
+<div class="auth-wrapper">
+  <div class="register-card">
+    <div class="header">
+      <h2>Stock<span>Manager</span></h2>
+      <h2>Créer un Compte</h2>
+      <p>Rejoignez StockManager pour gérer vos stocks efficacement.</p>
+    </div>
+
+    <form class="register-form">
+      <div class="row">
+        <div class="input-group">
+          <label for="firstname">Prénom</label>
+          <input type="text" placeholder="Jean" id="firstname" />
+        </div>
+        <div class="input-group">
+          <label for="lastname">Nom</label>
+          <input type="text" placeholder="Dupont" id="lastname" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input type="text" placeholder="Nom d'utilisateur" id="username" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" placeholder="Mot de passe" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary">S'inscrire</button>
+    </form>
+
+    <div class="footer">
+      <span>Déjà un compte ? </span><a routerLink="/login">Se connecter</a>
+    </div>
+  </div>
+</div>

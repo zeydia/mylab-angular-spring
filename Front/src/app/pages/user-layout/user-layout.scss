@@ -1,0 +1,116 @@
+$sidebar-width: 260px;
+$primary: #2563eb;
+$danger: #ef4444;
+$bg-light: #f1f5f9;
+
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $bg-light;
+
+  @media (max-width: 768px) {
+    flex-direction: column; 
+  }
+}
+
+// Correction du conteneur de contenu
+.main-content-container {
+  flex: 1;
+  // Sur Desktop, on décale pour laisser la place à la sidebar fixed
+  margin-left: $sidebar-width; 
+  min-height: 100vh;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    // Sur Mobile, la sidebar n'est plus fixe, donc on remet la marge à 0
+    margin-left: 0; 
+  }
+}
+
+// Sidebar
+.sidebar {
+  width: $sidebar-width;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed; 
+  height: 100vh;
+  z-index: 100;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    position: relative; // Reprend sa place dans le flux normal
+    padding: 15px;
+  }
+
+  // ... (le reste de ton code pour .user-profile, .menu, etc. est parfait)
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 20px;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background: $primary;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user-name { font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+      cursor: pointer;
+
+      &:hover, &.active {
+        background: rgba(255,255,255,0.1);
+        color: white;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px solid #334155;
+
+    .btn-logout {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #334155;
+      color: #f87171;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.2s;
+      &:hover { background: rgba($danger, 0.1); border-color: $danger; }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+$primary: #2563eb;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$white: #ffffff;
+$border: #e2e8f0;
+
+
+.page-header {
+  margin-bottom: 30px;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-dark;
+  }
+}
+
+.settings-section {
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: $text-dark;
+    border-bottom: 1px solid $border;
+    padding-bottom: 10px;
+  }
+}
+
+.user-info-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  .info-group {
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: $text-light;
+      margin-bottom: 4px;
+    }
+    p {
+      font-weight: 600;
+      color: $text-dark;
+    }
+  }
+}
+
+.password-form {
+  max-width: 400px;
+
+  .input-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: $text-dark;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $border;
+      border-radius: 6px;
+      font-size: 0.95rem;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+      }
+    }
+  }
+
+  .btn-save {
+    margin-top: 10px;
+    background: $primary;
+    color: $white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+
+    &:hover {
+      background: darken($primary, 10%);
+    }
+  }
+}

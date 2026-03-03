@@ -1,0 +1,128 @@
+$primary-blue: #2563eb;
+$dark-text: #1e293b;
+$light-text: #64748b;
+$bg-color: #f8fafc;
+$white: #ffffff;
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: transparent;
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        span { color: $primary-blue; }
+    }
+
+    .btn-login {
+        text-decoration: none;
+        color: $dark-text;
+        font-weight: 600;
+        margin-right: 25px;
+        &:hover { color: $primary-blue; }
+    }
+
+    .btn-signup {
+        text-decoration: none;
+        background: $primary-blue;
+        color: $white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+        &:hover { background: darken($primary-blue, 10%); }
+    }
+}
+
+// Section Hero
+.hero {
+    padding: 80px 8% 40px;
+    text-align: center;
+
+    .hero-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        color: $dark-text;
+        
+        span { color: $primary-blue; }
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: $light-text;
+        margin-bottom: 40px;
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    text-decoration: none;
+    background: $dark-text;
+    color: $white;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: translateY(-3px);
+        background: lighten($dark-text, 5%);
+    }
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.preview-box {
+    margin-top: 60px;
+    background: $white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+        &.red { background: #ff5f56; }
+        &.yellow { background: #ffbd2e; }
+        &.green { background: #27c93f; }
+    }
+
+    .fake-content {
+        margin-top: 20px;
+        .line {
+            height: 10px;
+            background: #f1f5f9;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            &.long { width: 80%; }
+            &.medium { width: 60%; }
+            &.short { width: 40%; }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .navbar { padding: 20px 5%; }
+}

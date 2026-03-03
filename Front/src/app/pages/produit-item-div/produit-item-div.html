@@ -1,0 +1,12 @@
+<li class="produit-item" [routerLink]="['/produit-detail', 1]">
+  <div class="produit-item-column id">{{ produit?.id }}</div>
+  <div class="produit-item-column name">{{ produit?.nom }}</div>
+  <div class="produit-item-column price">{{ produit?.prix }} €</div>
+  <div class="produit-item-column stock">
+    <span class="badge">{{ produit?.quantite }} en stock</span>
+  </div>
+  <div class="produit-item-column actions">
+     <button class="btn-edit" [routerLink]="['/produit-edit', 1]">Modifier</button>
+     <button class="btn-delete" (click)="deleteproduit()">Supprimer</button>
+  </div>
+</li>

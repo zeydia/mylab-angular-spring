@@ -1,0 +1,84 @@
+// Variables
+$primary: #2563eb;
+$text: #1e293b;
+$bg: #f8fafc;
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $bg;
+  padding: 20px; 
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; 
+  
+
+  @media (max-width: 480px) {
+    padding: 25px 20px;
+    border-radius: 8px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      span { color: $primary; }
+    }
+    p { color: #64748b; font-size: 0.9rem; margin-top: 5px; }
+  }
+}
+
+.input-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    
+    &:focus { border-color: $primary; box-shadow: 0 0 0 2px rgba($primary, 0.1); }
+  }
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover { background-color: darken($primary, 5%); }
+  &:active { transform: scale(0.98); }
+}
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  a { color: $primary; text-decoration: none; font-weight: 600; }
+}

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Variables de design
+$primary-blue: #2563eb;
+$dark-text: #1e293b;
+$light-text: #64748b;
+$bg-color: #f8fafc;
+$white: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: $bg-color;
+    color: $dark-text;
+    line-height: 1.6;
+}
