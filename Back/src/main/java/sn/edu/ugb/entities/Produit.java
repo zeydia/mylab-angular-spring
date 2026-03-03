@@ -1,14 +1,13 @@
-package sn.edu.ugb.demo.entity;
+package sn.edu.ugb.entities;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+import lombok.Data;
+
 @Entity
 @Table(name = "produits")
+@Data
 public class Produit {
 
     @Id
@@ -16,19 +15,20 @@ public class Produit {
     private Long id;
 
     @Column(nullable = false)
-    private String nom;
+    private String name;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal prix;
+    private BigDecimal price;
 
     @Column(nullable = false)
-    private Integer quantite;
+    private Integer quantity;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private User owner;
     
 }
 
