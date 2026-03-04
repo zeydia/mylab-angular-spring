@@ -13,7 +13,7 @@
       <div class="column-header">Actions</div>
     </div>
 
-    @if (loading) {
+    @if (loading()) {
       <div class="enChargement">
         <span class="loader"></span>
         Chargement des produits...
@@ -21,11 +21,17 @@
     }
 
     <ul class="liste">
-      @for (produit of produits; track produit.id; let i = $index) {
+      @for (produit of produitService.products(); track produit.id) {
         <app-produit-item-div [produit]="produit"></app-produit-item-div>
+      } @empty {
+        @if (!loading()) {
+          <div class="empty-state">
+            <p>Votre inventaire de produits est vide.</p>
+          </div>
+        }
       }
     </ul>
   </div>
 
-  <footer class="footer">Le footer de la page &copy; 2026</footer>
+  <footer class="footer">StockManager &copy; 2026</footer>
 </main>

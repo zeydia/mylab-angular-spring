@@ -9,7 +9,6 @@ import sn.edu.ugb.repositories.ProduitRepository;
 import sn.edu.ugb.repositories.UserRepository;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -25,11 +24,10 @@ public class ProduitController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping
-    public List<ProduitDTO> getProductsByUser(@RequestBody Map<String, String> body) {
-        Long ownerId = Long.parseLong(body.get("userId"));
+    @GetMapping("/user/{id}")
+    public List<ProduitDTO> getProductsByUser(@PathVariable Long id) {
 
-        return productRepository.findAllByOwnerId(ownerId).stream()
+        return productRepository.findAllByOwnerId(id).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

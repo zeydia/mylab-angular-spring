@@ -6,18 +6,24 @@
       <p>Connectez-vous pour gérer vos produits</p>
     </div>
 
-    <form class="login-form">
+    <form class="login-form" (ngSubmit)="onLogin()" #loginForm="ngForm">
       <div class="input-group">
         <label>Nom d'utilisateur</label>
-        <input type="username" placeholder="Nom d'utilisateur">
+        <input type="text" name="username" [(ngModel)]="username" placeholder="Nom d'utilisateur" required>
       </div>
 
       <div class="input-group">
         <label>Mot de passe</label>
-        <input type="password" placeholder="••••••••">
+        <input type="password" name="password" [(ngModel)]="password" placeholder="••••••••" required>
       </div>
 
-      <button type="submit" class="btn-primary">Se connecter</button>
+      <button type="submit" class="btn-primary" [disabled]="!loginForm.form.valid">
+        Se connecter
+      </button>
+
+      @if (errorMessage) {
+        <p class="error-message">{{ errorMessage }}</p>
+      }
     </form>
 
     <div class="footer">

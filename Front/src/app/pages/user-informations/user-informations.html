@@ -6,36 +6,47 @@
   <section class="settings-section">
     <h3>Informations personnelles</h3>
     <div class="user-info-card">
-      <div class="info-group">
-        <label>Nom complet</label>
-        <p>Jean Dupont</p>
-      </div>
-      <div class="info-group">
-        <label>Nom d'utilisateur</label>
-        <p>jean.dupont@exemple.com</p>
-      </div>
+      @if (authService.currentUser$ | async; as user) {
+        <div class="info-group">
+          <label>Nom complet</label>
+          <p>{{ user.firstname }} {{ user.lastname }}</p>
+        </div>
+        <div class="info-group">
+          <label>Nom d'utilisateur</label>
+          <p>{{ user.username }}</p>
+        </div>
+      }
     </div>
   </section>
 
   <section class="settings-section">
     <h3>Sécurité</h3>
-    <form class="password-form">
+    
+    @if (message()) {
+      <div [class]="isError() ? 'alert error' : 'alert success'">
+        {{ message() }}
+      </div>
+    }
+
+    <form class="password-form" (ngSubmit)="$event.preventDefault()">
       <div class="input-group">
         <label for="current-password">Mot de passe actuel</label>
-        <input type="password" id="current-password" placeholder="••••••••" [(ngModel)]="actualPassword">
+        <input type="password" id="current-password" name="actual" placeholder="••••••••" [(ngModel)]="actualPassword" required>
       </div>
 
       <div class="input-group">
         <label for="new-password">Nouveau mot de passe</label>
-        <input type="password" id="new-password" placeholder="••••••••" [(ngModel)]="newPassword">
+        <input type="password" id="new-password" name="new" placeholder="••••••••" [(ngModel)]="newPassword" required>
       </div>
 
       <div class="input-group">
         <label for="confirm-password">Confirmer le nouveau mot de passe</label>
-        <input type="password" id="confirm-password" placeholder="••••••••" [(ngModel)]="newPasswordConfirm">
+        <input type="password" id="confirm-password" name="confirm" placeholder="••••••••" [(ngModel)]="newPasswordConfirm" required>
       </div>
 
-      <button type="submit" class="btn-save" (click)="updatepassword()">Mettre à jour le mot de passe</button>
+      <button type="submit" class="btn-save" (click)="updatepassword()">
+        Mettre à jour le mot de passe
+      </button>
     </form>
   </section>
 </div>

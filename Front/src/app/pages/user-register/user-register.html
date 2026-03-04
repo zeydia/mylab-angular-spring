@@ -6,33 +6,37 @@
       <p>Rejoignez StockManager pour gérer vos stocks efficacement.</p>
     </div>
 
-    <form class="register-form">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="input-group">
           <label for="firstname">Prénom</label>
-          <input type="text" placeholder="Jean" id="firstname" />
+          <input type="text" formControlName="firstname" placeholder="Jean" id="firstname" />
         </div>
         <div class="input-group">
           <label for="lastname">Nom</label>
-          <input type="text" placeholder="Dupont" id="lastname" />
+          <input type="text" formControlName="lastname" placeholder="Dupont" id="lastname" />
         </div>
       </div>
 
       <div class="row">
         <div class="input-group">
           <label for="username">Nom d'utilisateur</label>
-          <input type="text" placeholder="Nom d'utilisateur" id="username" />
+          <input type="text" formControlName="username" placeholder="Nom d'utilisateur" id="username" />
         </div>
       </div>
 
       <div class="row">
         <div class="input-group">
           <label for="password">Mot de passe</label>
-          <input type="password" id="password" placeholder="Mot de passe" />
+          <input type="password" formControlName="password" id="password" placeholder="Mot de passe" />
         </div>
       </div>
 
-      <button type="submit" class="btn-primary">S'inscrire</button>
+      <button type="submit" class="btn-primary" [disabled]="registerForm.invalid">S'inscrire</button>
+      
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
     </form>
 
     <div class="footer">

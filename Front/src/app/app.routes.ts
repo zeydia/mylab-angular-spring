@@ -1,13 +1,9 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
-import { ProduitList } from './pages/produit-list/produit-list';
-import { ProduitDetail } from './pages/produit-detail/produit-detail';
 import { UserRegister } from './pages/user-register/user-register';
 import { UserLogin } from './pages/user-login/user-login';
-import { UserInformations } from './pages/user-informations/user-informations';
 import { UserLayout } from './pages/user-layout/user-layout';
-import { ProduitAdd } from './pages/produit-add/produit-add';
-import { ProduitEdit } from './pages/produit-edit/produit-edit';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -31,26 +27,28 @@ export const routes: Routes = [
   {
     path: '',
     component: UserLayout,
+    canActivate: [authGuard],
     children: [
       {
         path: 'produit-list',
-        component: ProduitList,
+        loadComponent: () => import('./pages/produit-list/produit-list').then(m => m.ProduitList),
       },
       {
         path: 'produit-detail/:id',
-        component: ProduitDetail,
+        loadComponent: () => import('./pages/produit-detail/produit-detail').then(m => m.ProduitDetail),
       },
       {
         path: 'produit-add',
-        component: ProduitAdd,
+        loadComponent: () => import('./pages/produit-add/produit-add').then(m => m.ProduitAdd),
+
       },
       {
         path: 'produit-edit/:id',
-        component: ProduitEdit,
+        loadComponent: () => import('./pages/produit-edit/produit-edit').then(m => m.ProduitEdit),
       },
       {
         path: 'user-informations',
-        component: UserInformations,
+        loadComponent: () => import('./pages/user-informations/user-informations').then(m => m.UserInformations),
       },
     ],
   },

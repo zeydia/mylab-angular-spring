@@ -1,46 +1,53 @@
 <div class="form-container">
   <header class="page-header">
     <a routerLink="/produit-list" class="btn-back">← Retour</a>
-    <h1>Ajouter un produit</h1>
+    <h1>Ajouter un nouveau produit</h1>
   </header>
 
-  <form class="product-form">
+  <form class="product-form" (ngSubmit)="saveproduct()" #produitForm="ngForm">
     <div class="form-section">
       <div class="input-group">
         <label for="name">Nom du produit</label>
-        <input type="text" id="name" placeholder="ex: Appareil Photo Sony">
+        <input type="text" id="name" name="name" [(ngModel)]="produit.name" 
+               placeholder="ex: Appareil Photo Sony" required>
       </div>
 
       <div class="row">
         <div class="input-group">
-          <label for="price">Prix (€)</label>
-          <input type="number" id="price" placeholder="0.00">
+          <label for="price">Prix (CFA)</label>
+          <input type="number" id="price" name="price" [(ngModel)]="produit.price" 
+                 placeholder="0.00" required>
         </div>
         <div class="input-group">
           <label for="stock">Quantité en stock</label>
-          <input type="number" id="stock" placeholder="0">
+          <input type="number" id="stock" name="stock" [(ngModel)]="produit.quantity" 
+                 placeholder="0" required>
         </div>
       </div>
 
       <div class="input-group">
         <label for="category">Catégorie</label>
-        <select id="category">
+         <select id="category" name="category"> <!--[(ngModel)]="produit.category" required> -->
           <option value="">Sélectionner une catégorie</option>
-          <option value="electronics">Électronique</option>
-          <option value="home">Maison</option>
-          <option value="fashion">Mode</option>
+          <option value="Electronique">Électronique</option>
+          <option value="Maison">Maison</option>
+          <option value="Informatique">Informatique</option>
+          <option value="Mode">Mode</option>
         </select>
       </div>
 
       <div class="input-group">
         <label for="description">Description</label>
-        <textarea id="description" rows="5" placeholder="Détails du produit..."></textarea>
+        <textarea id="description" name="description" rows="5" 
+                  [(ngModel)]="produit.description" placeholder="Détails du produit..."></textarea>
       </div>
     </div>
 
     <div class="form-actions">
       <button type="button" class="btn-cancel" routerLink="/produit-list">Annuler</button>
-      <button type="submit" class="btn-submit" (click)="saveproduct()">Enregistrer le produit</button>
+      <button type="submit" class="btn-submit" [disabled]="!produitForm.form.valid">
+        Enregistrer le produit
+      </button>
     </div>
   </form>
 </div>

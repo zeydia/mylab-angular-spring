@@ -17,13 +17,11 @@ $bg-light: #f1f5f9;
 // Correction du conteneur de contenu
 .main-content-container {
   flex: 1;
-  // Sur Desktop, on décale pour laisser la place à la sidebar fixed
   margin-left: $sidebar-width; 
   min-height: 100vh;
   padding: 20px;
 
   @media (max-width: 768px) {
-    // Sur Mobile, la sidebar n'est plus fixe, donc on remet la marge à 0
     margin-left: 0; 
   }
 }
@@ -43,11 +41,10 @@ $bg-light: #f1f5f9;
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
-    position: relative; // Reprend sa place dans le flux normal
+    position: relative; 
     padding: 15px;
   }
 
-  // ... (le reste de ton code pour .user-profile, .menu, etc. est parfait)
   
   .user-profile {
     display: flex;

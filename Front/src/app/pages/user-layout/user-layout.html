@@ -2,11 +2,17 @@
   <aside class="sidebar">
     <div class="user-profile">
       <div class="avatar"><i class="fas fa-user"></i></div>
-      <span class="user-name">Utilisateur Connecté</span>
+      <span class="user-name">
+        @if (authService.currentUser$ | async; as user) {
+          {{ user.firstname }} {{ user.lastname }}
+        } @else {
+          Utilisateur
+        }
+      </span>
     </div>
 
     <nav class="menu">
-      <a routerLink="/produit-list" routerLinkActive="active" class="menu-item">
+      <a routerLink="/produit-list" class="menu-item" [class.active]="isProduitRouteActive()">
         <i class="fas fa-boxes"></i>
         <span>Mon inventaire</span>
       </a>

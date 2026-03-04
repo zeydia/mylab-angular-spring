@@ -1,46 +1,50 @@
 <div class="form-container">
-  <header class="page-header">
-    <a [routerLink]="['/produit-detail', 1]" class="btn-back">← Retour</a>
-    <h1>Modifier un produit</h1>
-  </header>
+  @if (produit(); as p) {
+    <header class="page-header">
+      <a [routerLink]="['/produit-detail', p.id]" class="btn-back">← Retour</a>
+      <h1>Modifier le produit #{{ p.id }}</h1>
+    </header>
 
-  <form class="product-form">
-    <div class="form-section">
-      <div class="input-group">
-        <label for="name">Nom du produit</label>
-        <input type="text" id="name" placeholder="ex: Appareil Photo Sony" [value]="">
-      </div>
-
-      <div class="row">
+    <form class="product-form" (ngSubmit)="saveproduct()">
+      <div class="form-section">
         <div class="input-group">
-          <label for="price">Prix (€)</label>
-          <input type="number" id="price" placeholder="0.00" [value]="">
+          <label for="name">Nom du produit</label>
+          <input type="text" id="name" name="name" [(ngModel)]="p.name" required>
         </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label for="price">Prix (CFA)</label>
+            <input type="number" id="price" name="price" [(ngModel)]="p.price" required>
+          </div>
+          <div class="input-group">
+            <label for="stock">Quantité en stock</label>
+            <input type="number" id="stock" name="stock" [(ngModel)]="p.quantity" required>
+          </div>
+        </div>
+
+        <!-- <div class="input-group">
+          <label for="category">Catégorie</label>
+          <select id="category" name="category" [(ngModel)]="p.category" required>
+            <option value="">Sélectionner une catégorie</option>
+            <option value="Electronique">Électronique</option>
+            <option value="Maison">Maison</option>
+            <option value="Informatique">Informatique</option>
+          </select>
+        </div> -->
+
         <div class="input-group">
-          <label for="stock">Quantité en stock</label>
-          <input type="number" id="stock" placeholder="0" [value]="">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="5" [(ngModel)]="p.description"></textarea>
         </div>
       </div>
 
-      <div class="input-group">
-        <label for="category">Catégorie</label>
-        <select id="category">
-          <option value="">Sélectionner une catégorie</option>
-          <option value="electronics">Électronique</option>
-          <option value="home">Maison</option>
-          <option value="fashion">Mode</option>
-        </select>
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" [routerLink]="['/produit-list']">Annuler</button>
+        <button type="submit" class="btn-submit">Enregistrer les modifications</button>
       </div>
-
-      <div class="input-group">
-        <label for="description">Description</label>
-        <textarea id="description" rows="5" placeholder="Détails du produit..." [value]=""></textarea>
-      </div>
-    </div>
-
-    <div class="form-actions">
-      <button type="button" class="btn-cancel" [routerLink]="['/produit-detail', 1]">Annuler</button>
-      <button type="submit" class="btn-submit" (click)="saveproduct()">Enregistrer le produit</button>
-    </div>
-  </form>
+    </form>
+  } @else {
+    <div class="loader">Chargement des données...</div>
+  }
 </div>

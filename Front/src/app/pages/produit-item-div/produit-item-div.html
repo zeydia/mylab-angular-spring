@@ -1,12 +1,14 @@
-<li class="produit-item" [routerLink]="['/produit-detail', 1]">
+<li class="produit-item" [routerLink]="['/produit-detail', produit?.id]" style="cursor: pointer;">
   <div class="produit-item-column id">{{ produit?.id }}</div>
-  <div class="produit-item-column name">{{ produit?.nom }}</div>
-  <div class="produit-item-column price">{{ produit?.prix }} €</div>
+  <div class="produit-item-column name">{{ produit?.name }}</div>
+  <div class="produit-item-column price">{{ produit?.price }} CFA</div>
   <div class="produit-item-column stock">
-    <span class="badge">{{ produit?.quantite }} en stock</span>
+    <span class="badge" [class.low-stock]="(produit?.quantity || 0) < 5">
+      {{ produit?.quantity }} en stock
+    </span>
   </div>
-  <div class="produit-item-column actions">
-     <button class="btn-edit" [routerLink]="['/produit-edit', 1]">Modifier</button>
+  <div class="produit-item-column actions" (click)="$event.stopPropagation()">
+     <button class="btn-edit" [routerLink]="['/produit-edit', produit?.id]">Modifier</button>
      <button class="btn-delete" (click)="deleteproduit()">Supprimer</button>
   </div>
 </li>

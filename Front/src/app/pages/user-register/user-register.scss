@@ -87,3 +87,15 @@ $bg: #f8fafc;
   color: #64748b;
   a { cursor: pointer; color: $primary; text-decoration: none; font-weight: 600; }
 }
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
