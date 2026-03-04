@@ -36,8 +36,8 @@ Le script va :
 * `/envs` : Contient les fichiers `env.dev.ts` et `env.prod.ts`.
 
 ## ⚙️ Configuration Base de Données
-Assurez-vous que votre fichier `back/src/main/resources/application.properties` contient les bonnes informations de connexion :
+Assurez-vous que votre base de donnée Postgres `labframdev` est disponible et que votre fichier `Back/src/main/resources/application.properties` contient les bonnes informations de connexion :
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/nom_de_votre_base
-spring.datasource.username=votre_user
-spring.datasource.password=votre_password
+spring.datasource.url=jdbc:postgresql://localhost:5432/labframdev
+spring.datasource.username=test
+spring.datasource.password=test

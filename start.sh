@@ -17,7 +17,7 @@ if [ ! -d "./envs" ]; then
     exit 1
 fi
 
-# Dossier de destination (Front avec Majuscule)
+# Dossier de destination (Front)
 DEST_ENV="./Front/src/env"
 
 if [ ! -d "$DEST_ENV" ]; then
